@@ -8,7 +8,7 @@
 **Backend:**
   * MySql database 
     
-***The different users of this project are**   
+**The different users of this project are**   
   * Admin
   * Doctor
   * Receptionist
