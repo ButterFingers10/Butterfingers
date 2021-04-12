@@ -28,7 +28,7 @@
 
 **Admin:**
   * Admin will get a page after entering his correct username and password. He can add Receptionist, Doctor.
-  * After clicking create user button , admin will be directed to user registration page where he/she can register a user.
+  * After clicking create user button , admin will be direct to user registration page where he/she can register a user.
   * ![Untitled Diagram-Page-8](https://user-images.githubusercontent.com/43813438/114308909-05d53c80-9b03-11eb-8578-9508c31c880a.png)
 
     
