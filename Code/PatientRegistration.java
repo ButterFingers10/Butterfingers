@@ -4,6 +4,7 @@ import java.awt.event.*;
 public class PatientRegistration {
   public PatientRegistration(String id) {
 	  JFrame f=new JFrame("PatientRegistration");
+	  connect();
 		f.getContentPane().setBackground( Color.PINK );
 		JDialog d= new JDialog(f , "Registered", true); 
 		JLabel d1 = new JLabel("Patient Successfully Registered");
@@ -75,4 +76,17 @@ public class PatientRegistration {
 			}
 		});
   }
+	public void connect() {
+	try {
+	Class.forName("com.mysql.cj.jdbc.Driver");
+    cnct = DriverManager.getConnection("jdbc:mysql://localhost/xyzhosiptal","root","");
+    }
+	catch (SQLException e1) {
+    	e1.printStackTrace();
+    }
+	catch (ClassNotFoundException e1) {
+    	e1.printStackTrace();
+    } 
+	
+}
 }
