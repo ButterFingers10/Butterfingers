@@ -37,5 +37,19 @@ public Receptionist(){
 			new Login();
 		}
 	});
+	Connect();
+}
+	/* establishing connection with database */
+Connection cnct;
+PreparedStatement pst;
+	public void Connect() {
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		cnct=DriverManager.getConnection("jdbc:mysql://localhost/Hospital","root","");
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
 }
 }
