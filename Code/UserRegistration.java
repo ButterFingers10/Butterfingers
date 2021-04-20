@@ -48,6 +48,7 @@ public UserRegistration() {
 	f.add(jb);
 	f.add(b);
 	f.setBounds(500,350,500,350);
+	f.setLocationRelativeTo(null);
 	f.setVisible(true);
 	b.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
