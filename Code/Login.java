@@ -1,8 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 public class Login  {
-		public Login() {
+	static Connection cnct;
+	static PreparedStatement pst;
+	static ResultSet rs;
+		public static void main(String[] args){
 			JFrame f=new JFrame("Login");
 			JLabel title=new JLabel("XYZ Hospital");
 			JLabel l1=new JLabel("Username :");
@@ -40,13 +48,69 @@ public class Login  {
 			f.add(jb);
 			f.add(b1);
 			f.add(b2);
+			f.setLocationRelativeTo(null);
 			b1.setBackground(Color.green);
 			b2.setBackground(Color.red);
+			/* authenticating user */
+			b1.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					String username = tf1.getText();
+			        String password = pf.getText();
+			        String utype = jb.getSelectedItem().toString();
+			        try {
+			            Class.forName("com.mysql.cj.jdbc.Driver");
+			            cnct = DriverManager.getConnection("jdbc:mysql://localhost/Hospital","root","");
+			            
+			            pst = cnct.prepareStatement("select * from User where Name =? and Password =? and Type = ?");
+			            
+			            pst.setString(1, username);
+			            pst.setString(2, password);
+			            pst.setString(3, utype);
+			             
+			            rs= pst.executeQuery();
+			            
+			            if(rs.next())
+			            {
+			                int userid = rs.getInt("id");
+			                f.setVisible(false);
+			                if(utype.equals("Doctor"))
+			                {
+			                   new Doctor();
+			                }
+			                else if(utype.equals("Receptionist"))
+			                {
+			                   new Receptionist();
+			                }
+			                else
+			                {
+			                  new Admin();
+
+			                };
+			            }
+			            
+			            else
+			            {
+			                JOptionPane.showMessageDialog(f,"UserName and Password do not Match");
+			                tf1.setText("");
+			                pf.setText("");
+			                jb.requestFocus();
+			                
+			            }
+			        } catch (ClassNotFoundException e1) {
+			        	e1.printStackTrace();
+			        } catch (SQLException e1) {
+			        	e1.printStackTrace();
+			        }
+		    }  
+			});
 			b2.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					f.setVisible(false);
 		    }  
 			});
+			
 		}
+		
+		
 	
 }
