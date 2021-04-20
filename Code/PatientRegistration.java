@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
 public class PatientRegistration {
   public PatientRegistration(String id) {
 	  JFrame f=new JFrame("PatientRegistration");
