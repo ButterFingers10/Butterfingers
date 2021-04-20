@@ -62,6 +62,7 @@ public UserRegistration(String id) {
 	});
 	
 }
+	Connection cnct;
 	public void connect() {
 	try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
