@@ -3,8 +3,9 @@ import java.awt.*;
 import java.awt.event.*;
 public class UserRegistration {
 	 
-public UserRegistration() {
+public UserRegistration(String id) {
 	JFrame f=new JFrame("UserRegistration");
+	f.getContentPane().setBackground( Color.PINK );
 	JDialog d= new JDialog(f , "Registered", true); 
 	JLabel d1 = new JLabel("User Successfully Registered");
 	d1.setBounds(20,10,100,30);
@@ -13,6 +14,7 @@ public UserRegistration() {
 	JLabel title=new JLabel("XYZ Hospital");
 	JLabel title1=new JLabel("User Registration Page");
 	JLabel l1=new JLabel("UserId: ");
+	JLabel l5=new JLabel(id);
 	JLabel l2=new JLabel("UserName: ");
 	JTextField tf=new JTextField();
 	JLabel l3=new JLabel("Password: ");
@@ -28,6 +30,7 @@ public UserRegistration() {
 	title1.setForeground(Color.CYAN);
 	title1.setFont(new Font("Verdana", Font.BOLD, 15));
 	l1.setBounds(40,90,100,30);
+	l5.setBounds(150,90,100,30);
 	l2.setBounds(40,130,100,30);
 	tf.setBounds(150,130,100,30);
 	l3.setBounds(40,180,100,30);
@@ -45,29 +48,16 @@ public UserRegistration() {
 	f.add(l3);
 	f.add(pf);
 	f.add(l4);
+	f.add(l5);
 	f.add(jb);
 	f.add(b);
-	f.setBounds(500,350,500,350);
-	f.setLocationRelativeTo(null);
+	f.setBounds(500,350,500,400);
 	f.setVisible(true);
 	b.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 		d.setVisible(true);
 		}
 	});
-	Connect();
-}
-/* establishing connection with database */
-Connection cnct;
-PreparedStatement pst;
-	public void Connect() {
-	try {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		cnct=DriverManager.getConnection("jdbc:mysql://localhost/Hospital","root","");
-	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
-	} catch (SQLException e) {
-		e.printStackTrace();
-	}
+	
 }
 }
