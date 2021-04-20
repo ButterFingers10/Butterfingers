@@ -77,6 +77,7 @@ public class PatientRegistration {
 			}
 		});
   }
+Connection cnct;	
 	public void connect() {
 	try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
