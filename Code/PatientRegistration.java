@@ -64,11 +64,13 @@ public class PatientRegistration {
 		f.add(l7);
 		f.add(b);
 		f.setBounds(500,250,500,550);
+	  	f.setLocationRelativeTo(null);
 		f.setVisible(true);
 		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			d.setVisible(true);
 			}
 		});
+	  	Connect();
   }
 }
