@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
 public class Doctor {
   public Doctor(String name,String id) {
 	  JFrame f=new JFrame("Doctor Page");
@@ -34,7 +35,20 @@ JTable jt=new JTable(data,column);
 		f.add(jt);
 		f.setLayout(null);
 		f.setBounds(500,350,500,250);
+	  	f.setLocationRelativeTo(null);
 		f.setVisible(true);
-		
+		Connect();
+  }
+  Connection cnct;
+  PreparedStatement pst;
+  	public void Connect() {
+  	try {
+  		Class.forName("com.mysql.cj.jdbc.Driver");
+  		cnct=DriverManager.getConnection("jdbc:mysql://localhost/Hospital","root","");
+  	} catch (ClassNotFoundException e) {
+  		e.printStackTrace();
+  	} catch (SQLException e) {
+  		e.printStackTrace();
+  	}
   }
 }
