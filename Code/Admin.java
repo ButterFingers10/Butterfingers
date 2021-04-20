@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 public class Admin {
 public Admin() {
 	JFrame f=new JFrame("Admin Page");
@@ -38,5 +42,19 @@ public Admin() {
 			new Login();
 		}
 	});
+	Connect();
+}
+	/* establishing connection with database */
+Connection cnct;
+PreparedStatement pst;
+	public void Connect() {
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		cnct=DriverManager.getConnection("jdbc:mysql://localhost/Hospital","root","");
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
 }
 }
