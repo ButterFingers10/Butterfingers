@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 public class Doctor {
   public Doctor() {
 	  JFrame f=new JFrame("Doctor Page");
@@ -29,7 +33,8 @@ JTable jt=new JTable(data,column);
 		f.add(jt);
 		f.setLayout(null);
 		f.setBounds(500,350,500,250);
+	  	f.setLocationRelativeTo(null);
 		f.setVisible(true);
-		
+	  	Connect();
   }
 }
