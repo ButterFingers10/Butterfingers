@@ -118,6 +118,7 @@ public class Login  {
 				f.setVisible(false);
 			}
 		});}
+		/* connecting to the database */
 		public void connect() {
 			try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
