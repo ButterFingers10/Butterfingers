@@ -2,8 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 public class PatientRegistration {
-  public PatientRegistration() {
+  public PatientRegistration(String id) {
 	  JFrame f=new JFrame("PatientRegistration");
+		f.getContentPane().setBackground( Color.PINK );
 		JDialog d= new JDialog(f , "Registered", true); 
 		JLabel d1 = new JLabel("Patient Successfully Registered");
 		d1.setBounds(20,10,100,30);
@@ -23,6 +24,7 @@ public class PatientRegistration {
 	    JLabel l6=new JLabel("DoctorId: ");
 	    JTextField tf2=new JTextField();
 	    JLabel l7=new JLabel("DoctorName: ");
+	    JLabel l8=new JLabel(id);
 	    JTextField tf3=new JTextField();
 		JButton b=new JButton("Register");
 		title.setBounds(100, 10, 150, 30);
@@ -32,6 +34,7 @@ public class PatientRegistration {
 		title1.setForeground(Color.CYAN);
 		title1.setFont(new Font("Verdana", Font.BOLD, 15));
 		l1.setBounds(40,90,100,30);
+		l8.setBounds(150,90,100,30);
 		l2.setBounds(40,130,100,30);
 		tf.setBounds(150,130,100,30);
 		l3.setBounds(40,180,100,30);
@@ -62,28 +65,14 @@ public class PatientRegistration {
 		f.add(tf2);
 		f.add(tf3);
 		f.add(l7);
+		f.add(l8);
 		f.add(b);
 		f.setBounds(500,250,500,550);
-	  	f.setLocationRelativeTo(null);
 		f.setVisible(true);
 		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			d.setVisible(true);
 			}
 		});
-	  	Connect();
   }
-/* establishing connection with database */
-Connection cnct;
-PreparedStatement pst;
-	public void Connect() {
-	try {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		cnct=DriverManager.getConnection("jdbc:mysql://localhost/Hospital","root","");
-	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
-	} catch (SQLException e) {
-		e.printStackTrace();
-	}
-}
 }
