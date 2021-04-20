@@ -5,6 +5,7 @@ public class UserRegistration {
 	 
 public UserRegistration(String id) {
 	JFrame f=new JFrame("UserRegistration");
+	connect();
 	f.getContentPane().setBackground( Color.PINK );
 	JDialog d= new JDialog(f , "Registered", true); 
 	JLabel d1 = new JLabel("User Successfully Registered");
@@ -58,6 +59,19 @@ public UserRegistration(String id) {
 		d.setVisible(true);
 		}
 	});
+	
+}
+	public void connect() {
+	try {
+	Class.forName("com.mysql.cj.jdbc.Driver");
+    cnct = DriverManager.getConnection("jdbc:mysql://localhost/xyzhosiptal","root","");
+    }
+	catch (SQLException e1) {
+    	e1.printStackTrace();
+    }
+	catch (ClassNotFoundException e1) {
+    	e1.printStackTrace();
+    } 
 	
 }
 }
