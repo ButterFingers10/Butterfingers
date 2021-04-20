@@ -51,7 +51,7 @@ public UserRegistration(String id) {
 	f.add(l5);
 	f.add(jb);
 	f.add(b);
-	f.setBounds(500,350,500,400);
+	f.setBounds(500,351,500,400);
 	f.setVisible(true);
 	b.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
