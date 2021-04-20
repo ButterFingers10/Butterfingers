@@ -1,9 +1,9 @@
-**This is the sample data from database we took for unit testing**
+## **This is the sample data from database we took for unit testing**
 
 ![photo_2021-04-20_22-33-04](https://user-images.githubusercontent.com/43813438/115436279-6e6d9900-a228-11eb-87c2-e368ed0c23eb.jpg)
 
 
-##**Testing the authentication process in Login **
+## **Testing the authentication process in Login **
 
 * **When user enters wrong credentials to login, an error message should pop up** :
   * ![photo_2021-04-20_22-09-30](https://user-images.githubusercontent.com/43813438/115433426-3022aa80-a225-11eb-8599-ac6d2e905faa.jpg)
