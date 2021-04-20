@@ -25,6 +25,7 @@ public Receptionist(){
 	f.add(b2);
 	f.setLayout(null);
 	f.setBounds(500,350,500,250);
+	f.setLocationRelativeTo(null);
 	f.setVisible(true);
 	b1.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
