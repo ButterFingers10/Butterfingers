@@ -3,13 +3,13 @@
 ![photo_2021-04-20_22-33-04](https://user-images.githubusercontent.com/43813438/115436279-6e6d9900-a228-11eb-87c2-e368ed0c23eb.jpg)
 
 
-## **Testing the authentication process in Login **
+## **Testing the authentication process in Login**
 
 * **When user enters wrong credentials to login, an error message should pop up :**
   * ![photo_2021-04-20_22-09-30](https://user-images.githubusercontent.com/43813438/115433426-3022aa80-a225-11eb-8599-ac6d2e905faa.jpg)
   * ![photo_2021-04-20_22-11-02](https://user-images.githubusercontent.com/43813438/115433635-67915700-a225-11eb-8215-3ef9d83ddf2b.jpg)
 
-* **When the correct data from the database is used, user must be redirected to the his page :**
+* **When the correct data from the database is used, user must be redirected to his/her page :**
    * When user is doctor, he/she must be redirected to doctor page when correct credentials are entered.
       * ![photo_2021-04-20_22-14-39](https://user-images.githubusercontent.com/43813438/115434026-d8d10a00-a225-11eb-97ec-f9d8794d9970.jpg)
       * ![photo_2021-04-20_22-16-20](https://user-images.githubusercontent.com/43813438/115434272-22b9f000-a226-11eb-8339-c9cd6ed91b54.jpg)
