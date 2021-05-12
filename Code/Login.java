@@ -73,7 +73,7 @@ public class Login  {
 		                	String st="D";
 		                	String str="0000";
 		                	String str1=st+str.substring(0,5-len)+String.valueOf(userid);
-		                   new Doctor(name,str1);
+		                   new Doctor(name,str1,5-len);
 		                }
 		                else if(utype.equals("Receptionist"))
 		                {
@@ -96,6 +96,7 @@ public class Login  {
 		              }
 		            else{
 	                	JDialog d= new JDialog(f , "Error", true);
+	                	d.getContentPane().setBackground(Color.red);
 	                	JLabel d1 = new JLabel("Username and password does not match");
 	            		d1.setBounds(20,10,100,30);
 	            		d.add(d1);
@@ -118,7 +119,6 @@ public class Login  {
 				f.setVisible(false);
 			}
 		});}
-		/* connecting to the database */
 		public void connect() {
 			try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
