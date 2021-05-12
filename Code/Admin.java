@@ -52,15 +52,16 @@ public Admin(String name,String id) {
 				rs.next();
 	            String userid="U00001";
 	            if(rs.getString("MAX(id)")==null){
-	            	new UserRegistration(userid);
+	            	new UserRegistration(userid,1);
 	            }
 	            else {
 	                int len = rs.getString("MAX(id)").length();
 	                int id =Integer.parseInt( rs.getString("MAX(id)"));
 	                id++;
+	                len=String.valueOf(id).length();
 	                String str="0000";
                 	String str1="U"+str.substring(0,5-len)+String.valueOf(id);
-                	new UserRegistration(str1);
+                	new UserRegistration(str1,len);
 	            }
 				
 			}
