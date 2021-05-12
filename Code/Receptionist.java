@@ -1,7 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 public class Receptionist {
 	static Connection cnct;
 	static PreparedStatement pst;
@@ -46,15 +51,16 @@ public Receptionist(String name,String id){
 			rs.next();
             String id="P00001";
             if(rs.getString("MAX(patientid)")==null){
-            	new PatientRegistration(id);
+            	new PatientRegistration(id,1);
             }
             else {
                 int len = rs.getString("MAX(patientid)").length();
                 int id1 =Integer.parseInt( rs.getString("MAX(patientid)"));
                 id1++;
+                len=String.valueOf(id1).length();
                 String str="0000";
-            	String str1="P"+str.substring(0,5-len)+String.valueOf(id);
-            	new PatientRegistration(str1);
+            	String str1="P"+str.substring(0,5-len)+String.valueOf(id1);
+            	new PatientRegistration(str1,len);
             } }
 			catch (SQLException e1) {
 		    	e1.printStackTrace();
